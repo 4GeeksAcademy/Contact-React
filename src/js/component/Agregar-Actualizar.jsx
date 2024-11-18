@@ -43,7 +43,7 @@ const Agregar_Actualizar = (props) => {
   };
 
   return (
-    <div className="text-center fw-bold formulario">
+    <form className="text-center fw-bold formulario">
       <h2
         class={
           props.agregar_actualizar === "agregar"
@@ -54,7 +54,7 @@ const Agregar_Actualizar = (props) => {
         {agregar_actualizar}
       </h2>
       <div className="container-fluid w-75 mt-3 border border-dark p-3 rounded-3 my-3 bg-white">
-        <form>
+        <div>
           <div class="mb-3">
             <label for="exampleInputName" class="form-label">
               Full Name
@@ -120,18 +120,21 @@ const Agregar_Actualizar = (props) => {
               props.agregar_actualizar === "agregar"
                 ? props.funcion(nombre, mail, phone, location)
                 : props.funcion(id, nombre, mail, phone, location);
-              actions.ConseguirTodasLasAgendas();
+              setNombre("");
+              setMail("");
+              setLocation("");
+              setPhone("");
             }}
           >
             Done!
           </button>
-        </form>
+        </div>
       </div>
       <Link to={"/"} className="text-decoration-none fw-bold p-0 m-0 text-dark">
         <p>volver al home</p>
       </Link>
       <Toaster />
-    </div>
+    </form>
   );
 };
 

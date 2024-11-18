@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 const BtnYListaContactos = () => {
   const { store, actions } = useContext(Context);
 
+  useEffect(() => {
+    actions.ConseguirTodasLasAgendas();
+  }, []);
+
   return (
     <div className="fondo">
       <div className="container-fluid py-3">
@@ -23,7 +27,7 @@ const BtnYListaContactos = () => {
             </div>
           </div>
           <div className="col-lg-6 col-12 container-contacts pt-3">
-            <div className="d-flex flex-column mx-lg-3">
+            <div className="d-flex flex-column mx-lg-3 mt-3">
               {store.contact.map((elem) => {
                 return (
                   <Contacto
